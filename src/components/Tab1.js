@@ -9,12 +9,10 @@ import {
     Paper,
 } from "@mui/material";
 
-const Tab1 = () => {
-    const data = [
-        { sno: 1, name: "John", intime: 25, outtime: 25, duration: 34 },
-        { sno: 2, name: "Jane", intime: 30, outtime: 25, duration: 34 },
-        { sno: 3, name: "Doe", intime: 28, outtime: 25, duration: 34 },
-    ];
+const Tab1 = ({ data }) => {
+
+    let counter = 1;
+    console.log(data);
 
     return (
         <div
@@ -32,36 +30,35 @@ const Tab1 = () => {
                     <TableHead>
                         <TableRow
                             sx={{
-                                backgroundColor: "#3F2E3E",
+                                backgroundColor: "#CDC5C4"
                             }}
                         >
-                            <TableCell sx={{ color: "#EFE1D1" }}>
+                            <TableCell sx={{ color: "#3F2E3E", fontWeight: 'bold' }}>
                                 S.No.
                             </TableCell>
-                            <TableCell sx={{ color: "#EFE1D1" }}>
-                                Name
+                            <TableCell sx={{ color: "#3F2E3E", fontWeight: 'bold' }}>
+                                RFID
                             </TableCell>
-                            <TableCell sx={{ color: "#EFE1D1" }}>
-                                InTime
+                            <TableCell sx={{ color: "#3F2E3E", fontWeight: 'bold' }}>
+                                Full Name
                             </TableCell>
-                            <TableCell sx={{ color: "#EFE1D1" }}>
-                                OutTime
+                            <TableCell sx={{ color: "#3F2E3E", fontWeight: 'bold' }}>
+                                Time
                             </TableCell>
-                            <TableCell sx={{ color: "#EFE1D1" }}>
+                            {/* <TableCell sx={{ color: "#EFE1D1" }}>
                                 Duration
-                            </TableCell>
+                            </TableCell> */}
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {data.map((row) => (
-                            <TableRow key={row.sno}>
-                                <TableCell>{row.sno}</TableCell>
-                                <TableCell>{row.name}</TableCell>
-                                <TableCell>{row.intime}</TableCell>
-                                <TableCell>{row.outtime}</TableCell>
-                                <TableCell>{row.duration}</TableCell>
+                        {data && data.length > 0 ? data.map((row) => (
+                            <TableRow key={counter}>
+                                <TableCell>{counter++}</TableCell>
+                                <TableCell>{row.RFID}</TableCell>
+                                <TableCell>{row.Data}</TableCell>
+                                <TableCell>{row.Time}</TableCell>
                             </TableRow>
-                        ))}
+                        )) : null}
                     </TableBody>
                 </Table>
             </TableContainer>

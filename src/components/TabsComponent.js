@@ -6,8 +6,6 @@ import Tab1 from "./Tab1";
 function TabsComponent({ data }) {
     const [value, setValue] = useState(0);
 
-    console.log(data);
-
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
@@ -17,7 +15,7 @@ function TabsComponent({ data }) {
             style={{
                 width: "170vh",
                 margin: "20px",
-                marginLeft: "110px",
+                marginLeft: "110px"
             }}
         >
             <Tabs
@@ -66,42 +64,15 @@ function TabsComponent({ data }) {
             </Tabs>
 
             {/* Content for each tab */}
-            {value === 0 && <Tab1 />}
+            {value === 0 && <Tab1 data = { data } />}
             {value === 1 && (
-                // <div
-                //     style={{
-                //         padding: "100px",
-                //         backgroundColor: "#A78295",
-                //         color: "#EFE1D1",
-                //     }}
-                // >
-                //     Those who have not attended classes greater than 6 hours
-                // </div>
-                <Tab1 />
+                <Tab1 data = { data } />
             )}
             {value === 2 && (
-                // <div
-                //     style={{
-                //         padding: "100px",
-                //         backgroundColor: "#A78295",
-                //         color: "#EFE1D1",
-                //     }}
-                // >
-                //     Those who have attended classes less than 3 hours
-                // </div>
-                <Tab1 />
+                <Tab1 data = { data } />
             )}
             {value === 3 && (
-                // <div
-                //     style={{
-                //         padding: "100px",
-                //         backgroundColor: "#A78295",
-                //         color: "#EFE1D1",
-                //     }}
-                // >
-                //     Those who have not attended classes
-                // </div>
-                <Tab1 />
+                <Tab1 data = { data } />
             )}
         </div>
     );
