@@ -20,14 +20,20 @@ function App() {
 
     // Function Call to get the data
     useEffect(() => {
-        getData()
-            .then((data) => {
-                setData(data);
-            })
-            .catch((error) => {
-                console.error("Error Getting Data From The Backend API!");
-            });
+        const intervalId = setInterval(() => { // assign interval to a variable to clear it.
+            getData()
+                .then((data) => {
+                    setData(data);
+                })
+                .catch((error) => {
+                    console.error("Error Getting Data From The Backend API!");
+                });
+        }, 1000); // every 3 seconds
+
+        return () => clearInterval(intervalId); //This clears the interval when the component gets unmounted
     }, []);
+
+
 
     return (
         <div className="App">
